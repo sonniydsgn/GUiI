@@ -1,0 +1,25 @@
+@use "./../helpers" as *;
+
+:root {
+	--color-light: #fff;
+	
+	--color-dark: #1b1f26;
+	
+	--color-gray: #e1e1e2;
+	--color-gray-alt: #f2f2f2;
+	--color-gray-dark: #81818b;
+
+	--font-family-base: "Montserrar", sans-serif;
+
+	--container-width: #{rem(1172)};
+	--container-padding-x: #{rem(25)};
+
+	--button-height: #{rem(36)};
+	--button-height-large: #{rem(48)};
+
+	--border-radius-small: #{rem(8)};
+	--border-radius: #{rem(12)};
+	--border-radius-large: #{rem(16)};
+	
+	--transition-duration: .25s;
+}
