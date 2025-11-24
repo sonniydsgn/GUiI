@@ -1,0 +1,41 @@
+@use "~/styles/helpers/" as *;
+
+.button {
+  @include button-reset;
+  @include flex-center(true);
+
+  height: var(--button-height);
+  padding-inline: rem(24);
+  font-weight: 600;
+  font-size: rem(14);
+  line-height: 1.14;
+	border-right: var(--border-radius);
+	transition: 0.3s cubic-bezier(.07,.82,.57,1.42);
+	
+	@include hover(false) {
+		scale: 1.15;
+	}
+
+	&:active {
+		scale: 0.95;
+	}
+
+  &__light {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+  }
+
+  &__dark {
+    background-color: var(--color-dark);
+  }
+
+  &__gray {
+    background-color: var(--color-gray);
+  }
+
+	&--small {
+		height: var(--button-height-small);
+		padding-inline: rem(16);
+		border-radius: var(--border-radius-small);
+	}
+}

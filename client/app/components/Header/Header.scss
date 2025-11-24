@@ -1,0 +1,29 @@
+@use "~/styles/helpers/" as *;
+
+.header {
+	background-color: var(--color-dark);
+	padding-block: rem(16);
+
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__actions {
+		display: flex;
+		column-gap: rem(32);
+		align-items: center;
+	}
+
+	&__menu {
+		&-list {
+			display: flex;
+			column-gap: rem(32);
+		}
+
+		&-link {
+			color: var(--color-light)
+		}
+	}
+}

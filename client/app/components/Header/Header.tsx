@@ -2,6 +2,9 @@ import "./Header.scss";
 
 import { useState, useEffect } from "react";
 
+import Logo from "../Logo/Logo";
+import Button from "../Button/Button";
+
 interface Article {
   id: number;
   documentId: string;
@@ -20,14 +23,14 @@ interface LoaderData {
   articlesData: ArticleResponse;
 }
 
-
 const Header = () => {
   const [data, setData] = useState<LoaderData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadData() {
-      const BASE_URL = import.meta.env.VITE_STRAPI_URL || "http://localhost:1337";
+      const BASE_URL =
+        import.meta.env.VITE_STRAPI_URL || "http://localhost:1337";
       const path = "/api/header-menus";
       const url = new URL(path, BASE_URL);
 
@@ -44,11 +47,27 @@ const Header = () => {
   if (!data) return <p>No data found</p>;
 
   return (
-    <ul>
-      {data.articlesData.data.map((item) => (
-        <li key={item.id}>{item.content}</li>
-      ))}
-    </ul>
+    <header className="header">
+      <div className="header__inner container">
+        <Logo className="header__logo" />
+
+        <div className="header__actions">
+          <nav className="header__menu">
+            <ul className="header__menu-list">
+              {data.articlesData.data.map((item) => (
+                <li key={item.id} className="header__menu-item">
+                  <a href="" className="header__menu-link">
+                    {item.content}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+					<Button className="header__button" variant="light" isSmall>Поступить</Button>
+        </div>
+      </div>
+    </header>
   );
 };
 
