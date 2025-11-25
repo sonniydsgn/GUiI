@@ -13,10 +13,6 @@
   "attributes": {
     "content": {
       "type": "string"
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "content"
     }
   }
 }

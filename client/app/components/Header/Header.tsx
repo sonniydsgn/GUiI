@@ -5,22 +5,21 @@ import { useState, useEffect } from "react";
 import Logo from "../Logo/Logo";
 import Button from "../Button/Button";
 
-interface Article {
+interface HeaderMenuItem {
   id: number;
   documentId: string;
   content: string;
-  slug: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
 }
 
-interface ArticleResponse {
-  data: Article[];
+interface HeaderMenuItemResponse {
+  data: HeaderMenuItem[];
 }
 
 interface LoaderData {
-  articlesData: ArticleResponse;
+  HeaderMenuItemData: HeaderMenuItemResponse;
 }
 
 const Header = () => {
@@ -35,8 +34,9 @@ const Header = () => {
       const url = new URL(path, BASE_URL);
 
       const response = await fetch(url.href);
-      const articlesData = await response.json();
-      setData({ articlesData });
+      const HeaderMenuItemData = await response.json();
+			
+      setData({ HeaderMenuItemData });
       setLoading(false);
     }
 
@@ -54,7 +54,7 @@ const Header = () => {
         <div className="header__actions">
           <nav className="header__menu">
             <ul className="header__menu-list">
-              {data.articlesData.data.map((item) => (
+              {data.HeaderMenuItemData.data.map((item) => (
                 <li key={item.id} className="header__menu-item">
                   <a href="" className="header__menu-link">
                     {item.content}
