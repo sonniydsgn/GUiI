@@ -7,7 +7,7 @@ import Button from "~/components/Button/Button";
 import type { ReactNode } from "react";
 
 interface SectionProps {
-  sectionName: string;
+  sectionName: ReactNode;
   children: ReactNode;
   title: string;
   description?: string;
