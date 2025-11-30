@@ -1,0 +1,60 @@
+@use "~/styles/helpers" as *;
+
+.events-card {
+  background-color: var(--color-light);
+  padding: rem(8);
+  border-radius: var(--border-radius);
+  position: relative;
+
+  &__inner {
+    display: flex;
+    column-gap: rem(28);
+    align-items: center;
+  }
+
+  &__image {
+    border-radius: var(--border-radius-small);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(20);
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(16);
+  }
+
+  &__author,
+  &__location {
+    display: flex;
+    column-gap: rem(12);
+
+    &::before {
+      @include square(rem(24));
+
+      content: "";
+    }
+  }
+
+  &__author {
+    &::before {
+      background: url("../../assets/icons/User.svg") center / cover no-repeat;
+    }
+  }
+
+  &__location {
+    &::before {
+      background: url("../../assets/icons/MapPin.svg") center / cover no-repeat;
+    }
+  }
+
+  &__link {
+    position: absolute;
+    top: rem(24);
+    right: rem(20);
+  }
+}

@@ -1,0 +1,6 @@
+@use "~/styles/helpers" as *;
+
+.events-filters {
+	display: flex;
+	column-gap: rem(8);
+}

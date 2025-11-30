@@ -3,9 +3,11 @@
 .section {
   padding-block: rem(112);
 
-  // &:not(.section--gray):nth-child(2n) {
-  // 	color: red;
-  // }
+  &:not(.section--gray):not(.section--dark) {
+		&:nth-child(4), &:nth-child(5) {
+			padding-top: 0;
+		}
+  }
 
   &--gray {
     background-color: var(--color-gray);

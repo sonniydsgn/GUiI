@@ -4,20 +4,28 @@ import "./Button.scss";
 interface ButtonProps {
   children: string;
   className: string;
+  variant: "light" | "gray" | "dark" | "transparent";
   isSmall?: boolean;
-  variant: "light" | "gray" | "dark";
+  disableHoverEffect?: boolean;
+	onClick?: () => void;
 }
 
-const Button = ({ children, className, isSmall, variant }: ButtonProps) => {
+const Button = ({
+  children,
+  className,
+  isSmall,
+  variant,
+  disableHoverEffect = false,
+	onClick
+}: ButtonProps) => {
   return (
     <button
       type="button"
-      className={clsx(
-        "button",
-        className,
-        { "button--small": isSmall },
-        `button__${variant}`
-      )}
+      className={clsx("button", className, `button__${variant}`, {
+        "button--small": isSmall,
+        "button--disable-hover": disableHoverEffect,
+      })}
+			onClick={onClick}
     >
       {children}
     </button>
