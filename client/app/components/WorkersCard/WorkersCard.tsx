@@ -1,18 +1,13 @@
 import "./WorkersCard.scss";
 
-interface WorkersCardProps {
-  imageSrc: string;
-  name: string;
-  profession: string;
-  description: string;
-}
+import type { IWorkersCard } from "~/data/WorkersCardsData";
 
 const WorkersCard = ({
   imageSrc,
   name,
   profession,
   description,
-}: WorkersCardProps) => {
+}: IWorkersCard) => {
   return (
     <article className="workers-card">
       <img
@@ -27,7 +22,7 @@ const WorkersCard = ({
       <div className="workers-card__inner">
         <div className="workers-card__header">
           <p className="workers-card__name">{name}</p>
-          <p className="workers-card__profession">{profession}</p>
+          <p className="workers-card__profession body-s-regular">{profession}</p>
         </div>
 
         <p className="workers-card__description">{description}</p>

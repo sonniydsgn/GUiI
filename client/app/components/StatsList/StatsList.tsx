@@ -1,12 +1,12 @@
 import StatsCard from "../StatsCard/StatsCard";
 
-import { StatsCardData } from "~/data/StatsCardData";
+import { StatsCardsData } from "~/data/StatsCardsData";
 
 const StatsList = () => {
   return (
     <ul className="stats__list">
-      {StatsCardData.map(({ count, characteristic }) => (
-        <li className="stats__item">
+      {StatsCardsData.map(({ count, characteristic, id }) => (
+        <li className="stats__item" key={id}>
           <StatsCard count={count} characteristic={characteristic}/>
         </li>
       ))}

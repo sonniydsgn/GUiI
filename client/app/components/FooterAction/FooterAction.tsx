@@ -1,17 +1,10 @@
 import "./FooterAction.scss";
 
-import type { ILinkItem } from "../../data/FooterData";
-import clsx from "clsx";
+import type { IFooterAction } from "../../data/FooterActionsData";
 
-interface FooterActionProps {
-  title: string;
-  links: ILinkItem[];
-  className: string;
-}
-
-const FooterAction = ({ title, links, className }: FooterActionProps) => {
+const FooterAction = ({ title, links }: IFooterAction) => {
   return (
-    <div className={clsx("footer-action", className)}>
+    <div className="footer-action">
       <p className="footer-action__title">{title}</p>
       <ul className="footer-action__list">
         {links.map(({ id, src, text }) => (

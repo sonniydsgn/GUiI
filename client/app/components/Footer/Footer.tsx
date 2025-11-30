@@ -2,9 +2,10 @@ import "./Footer.scss";
 
 import Logo from "../Logo/Logo";
 
-import { FooterActionsData } from "../../data/FooterData";
-import Soc1als from "../Soc1als/Soc1als";
+import { FooterActionsData } from "../../data/FooterActionsData";
+
 import FooterAction from "../FooterAction/FooterAction";
+import FooterSoc1als from "../FooterSoc1als/FooterSoc1als";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -24,17 +25,12 @@ const Footer = () => {
               </p>
             </div>
 
-            <Soc1als className="footer__soc1als" />
+            <FooterSoc1als />
           </div>
 
           <div className="footer__actions">
-            {FooterActionsData.map((action) => (
-              <FooterAction
-                title={action.title}
-                links={action.links}
-                key={action.id}
-                className="footer__action"
-              />
+            {FooterActionsData.map(({ id, title, links }) => (
+              <FooterAction title={title} links={links} key={id} />
             ))}
           </div>
         </div>
@@ -42,12 +38,12 @@ const Footer = () => {
 
       <div className="footer__bottom">
         <div className="footer__bottom-inner container">
-          <small className="footer__copyright">
+          <small className="footer__copyright body-xs-medium">
             © <time dateTime={currentYear.toString()}>{currentYear}</time>{" "}
             Пермский Политех
           </small>
 
-          <a href="/" className="footer__authors">
+          <a href="/" className="footer__authors body-xs-medium">
             Сделано студентами МТИД-23-1б
           </a>
         </div>

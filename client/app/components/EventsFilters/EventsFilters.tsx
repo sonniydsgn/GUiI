@@ -7,22 +7,22 @@ import Button from "../Button/Button";
 import { useState } from "react";
 
 const EventsFilters = () => {
-  const [idActiveButton, setIdActiveButton] = useState<number>(1);
+  const [activeCategory, setActiveCategory] = useState<string>("teams");
 
-	const handleCLick = (id: number) => {
-		setIdActiveButton(id)
+	const handleClick = (category: string) => {
+		setActiveCategory(category)
 	}
 
   return (
     <div className="events-filters">
-      {EventsFiltersData.map(({ id, text }) => (
+      {EventsFiltersData.map(({ id, text, category }) => (
         <Button
           className="events-filters__button"
-          variant={id === idActiveButton ? "dark" : "transparent"}
+          variant={category === activeCategory ? "dark" : "transparent"}
           isSmall
           key={id}
 					disableHoverEffect
-					onClick={() => handleCLick(id)}
+					onClick={() => handleClick(category)}
         >
           {text}
         </Button>

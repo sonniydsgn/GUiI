@@ -6,20 +6,45 @@
   border-radius: var(--border-radius);
   position: relative;
 
+  @include hover(false) {
+    .events-card__image {
+      scale: 1.2;
+    }
+  }
+
   &__inner {
     display: flex;
     column-gap: rem(28);
     align-items: center;
   }
 
-  &__image {
+  &__wrapper-image {
+    width: rem(320);
+    height: rem(188);
+    overflow: hidden;
     border-radius: var(--border-radius-small);
+  }
+
+  &__image {
+    border-radius: inherit;
+    width: 100%;
+    transition-duration: var(--transition-duration);
   }
 
   &__body {
     display: flex;
     flex-direction: column;
     row-gap: rem(20);
+  }
+
+  &__title,
+  &__author,
+  &__location {
+    z-index: 100;
+  }
+
+  &__title {
+    max-width: rem(340);
   }
 
   &__info {
@@ -42,19 +67,26 @@
 
   &__author {
     &::before {
-      background: url("../../assets/icons/User.svg") center / cover no-repeat;
+      background: url("../../assets/icons/user.svg") center / cover no-repeat;
     }
   }
 
   &__location {
     &::before {
-      background: url("../../assets/icons/MapPin.svg") center / cover no-repeat;
+      background: url("../../assets/icons/map-pin.svg") center / cover no-repeat;
     }
   }
 
   &__link {
-    position: absolute;
-    top: rem(24);
-    right: rem(20);
+    margin-left: auto;
+    align-self: start;
+    padding-top: rem(16);
+    padding-right: rem(12);
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
   }
 }

@@ -1,12 +1,12 @@
-export interface IEventsCardData {
-  id: number;
+export interface IEventsCard {
+  id?: number;
   imageSrc: string;
   title: string;
   author: string;
   location: string;
 }
 
-export const EventsCardsData: IEventsCardData[] = [
+export const EventsCardsData: IEventsCard[] = [
   {
     id: 1,
     imageSrc: "/app/assets/img/events/1.jpg",

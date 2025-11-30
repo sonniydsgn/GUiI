@@ -2,22 +2,18 @@ import "./DirectionsCard.scss";
 
 import LinkWithArrow from "../LinkWithArrow/LinkWithArrow";
 
-interface DirectionsCardProps {
-  Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-  title: string;
-  description: string;
-  tags: string[];
-}
+import type { IDirectionsCard } from "~/data/DirectionsCardsData";
 
 const DirectionsCard = ({
   Icon,
   title,
   description,
   tags,
-}: DirectionsCardProps) => {
+}: IDirectionsCard) => {
   return (
     <article className="directions-card">
       <Icon />
+
       <div className="directions-card__body">
         <div className="directions-card__content">
           <h3 className="directions-card__title">{title}</h3>
@@ -26,10 +22,13 @@ const DirectionsCard = ({
 
         <div className="directions-card__tags">
           {tags.map((tag) => (
-            <p className="directions-card__tag">{tag}</p>
+            <p className="directions-card__tag body-s-regular" key={tag}>
+              {tag}
+            </p>
           ))}
         </div>
       </div>
+
       <LinkWithArrow className="directions-card__link" href="/">
         Подробнее
       </LinkWithArrow>

@@ -5,7 +5,7 @@ import DirectionsList from "~/components/DirectionsList/DirectionsList";
 
 const Directions = () => {
   return (
-    <Section sectionName="directions" title={"Направления подготовки"}>
+    <Section sectionName="directions" title="Направления подготовки">
       <div className="directions__inner container">
         <DirectionsList />
       </div>

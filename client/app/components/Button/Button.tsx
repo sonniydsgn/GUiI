@@ -1,5 +1,6 @@
-import clsx from "clsx";
 import "./Button.scss";
+
+import clsx from "clsx";
 
 interface ButtonProps {
   children: string;

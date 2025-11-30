@@ -50,7 +50,7 @@ const Hero = () => {
       <div className="hero__inner container">
         <div className="hero__body">
           <h1 className="hero__title">{data.HeroData.data.title}</h1>
-          <p className="hero__description">{data.HeroData.data.description}</p>
+          <p className="hero__description body-l-regular">{data.HeroData.data.description}</p>
         </div>
 
         <img

@@ -59,3 +59,57 @@ h3,
   outline-offset: rem(4);
   transition-duration: 0s !important;
 }
+
+.body-xs-medium {
+  font-size: rem(12);
+  line-height: 1.33;
+  letter-spacing: 0.01em;
+	font-weight: 600;
+}
+
+.body-xs-regular {
+  font-size: rem(12);
+  line-height: 1.33;
+  letter-spacing: 0.01em;
+	font-weight: 500;
+}
+
+.body-s-medium {
+  font-size: rem(14);
+  line-height: 1.43;
+  letter-spacing: 0em;
+	font-weight: 600;
+}
+
+.body-s-regular {
+  font-size: rem(14);
+  line-height: 1.43;
+  letter-spacing: 0em;
+	font-weight: 500;
+}
+
+.body-m-medium {
+  font-size: rem(16);
+  line-height: 1.5;
+	font-weight: 600;
+}
+
+.body-m-regular {
+  font-size: rem(16);
+  line-height: 1.5;
+	font-weight: 500;
+}
+
+.body-l-medium {
+  font-size: rem(20);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+	font-weight: 600;
+}
+
+.body-l-regular {
+  font-size: rem(20);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+	font-weight: 500;
+}

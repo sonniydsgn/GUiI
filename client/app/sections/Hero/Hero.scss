@@ -16,12 +16,9 @@
     text-align: center;
   }
 
-  &__description {
-    font-size: rem(20);
-    line-height: 1.4;
-    letter-spacing: -0.01em;
-		margin-top: rem(25);
-  }
+	&__title {
+		margin-bottom: rem(25);
+	}
 
   &__pattern {
     position: absolute;

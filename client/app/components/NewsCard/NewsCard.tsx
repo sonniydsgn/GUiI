@@ -2,16 +2,9 @@ import "./NewsCard.scss";
 
 import LinkWithArrow from "../LinkWithArrow/LinkWithArrow";
 
-interface NewsCardProps {
-  imageSrc: string;
-  category: string;
-  text: string;
-  publishedAt: string;
-}
+import type { INewsCard } from "~/data/NewsCardsData";
 
-import test from "~/assets/img/news/1.jpg";
-
-const NewsCard = ({ imageSrc, category, text, publishedAt }: NewsCardProps) => {
+const NewsCard = ({ imageSrc, category, text, publishedAt }: INewsCard) => {
   return (
     <article className="news-card">
       <div className="news-card__wrapper-image">
@@ -27,7 +20,7 @@ const NewsCard = ({ imageSrc, category, text, publishedAt }: NewsCardProps) => {
 
       <div className="news-card__inner">
         <div className="news-card__body">
-          <div className="news-card__info">
+          <div className="news-card__info body-xs-medium">
             <span className="news-card__category">{category}</span> •{" "}
             <span className="news-card__date">{publishedAt}</span>
           </div>

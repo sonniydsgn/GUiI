@@ -1,13 +1,13 @@
 import "./StatsCard.scss";
 
-import type { IStatsCardData } from "~/data/StatsCardData";
+import type { IStatsCard } from "~/data/StatsCardsData";
 
-const StatsCard = ({ count, characteristic }: IStatsCardData) => {
+const StatsCard = ({ count, characteristic }: IStatsCard) => {
   return (
     <article className="stats-card">
       <h3 className="stats-card__title">
-        <span className="stats-card__count">{count}</span>
-        <span className="stats-card__characteristic">{characteristic}</span>
+        <span className="stats-card__count h2">{count}</span>
+        <span className="stats-card__characteristic body-l-medium">{characteristic}</span>
       </h3>
     </article>
   );

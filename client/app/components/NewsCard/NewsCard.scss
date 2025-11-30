@@ -4,6 +4,8 @@
   background-color: var(--color-light);
   border-radius: var(--border-radius-large);
 	padding: rem(8);
+	position: relative;
+
   @include hover {
     .news-card__image {
       scale: 1.2;
@@ -28,13 +30,16 @@
   }
 
   &__info {
-    font-weight: 600;
-    font-size: rem(12);
-    line-height: 1.33;
-    letter-spacing: 0.01em;
+		position: relative;
     color: var(--color-gray-dark);
     margin-bottom: rem(8);
+		z-index: 100;
   }
+
+	&__text {
+		z-index: 100;
+		position: relative;
+	}
 
   &__text {
     margin-bottom: rem(24);
@@ -45,4 +50,12 @@
 		-webkit-line-clamp: 6;
 		-webkit-box-orient: vertical;
   }
+
+	&__link {
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+		}
+	}
 }

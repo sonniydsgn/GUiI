@@ -1,13 +1,11 @@
-import "./DirectionsList.scss";
-
 import DirectionsCard from "../DirectionsCard/DirectionsCard";
-import { DirectionsCardData } from "~/data/DirectionsCardData";
+import { DirectionsCardsData } from "~/data/DirectionsCardsData";
 
 const DirectionsList = () => {
   return (
     <ul className="directions__list">
-      {DirectionsCardData.map(({ Icon, title, description, tags }) => (
-        <li className="directions__item">
+      {DirectionsCardsData.map(({ Icon, title, description, tags, id }) => (
+        <li className="directions__item" key={id}>
           <DirectionsCard
             Icon={Icon}
             title={title}

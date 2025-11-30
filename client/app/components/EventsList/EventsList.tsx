@@ -1,4 +1,5 @@
 import { EventsCardsData } from "~/data/EventsCardsData";
+
 import EventsCard from "../EventsCard/EventsCard";
 
 const EventsList = () => {
@@ -7,7 +8,6 @@ const EventsList = () => {
       {EventsCardsData.map(({ id, imageSrc, title, author, location }) => (
         <li className="events__item" key={id}>
           <EventsCard
-            id={id}
             imageSrc={imageSrc}
             title={title}
             author={author}

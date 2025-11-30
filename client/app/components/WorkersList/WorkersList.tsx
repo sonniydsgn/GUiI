@@ -1,14 +1,12 @@
-import "./WorkersList.scss";
-
-import { WorkersCardData } from "~/data/WorkersCardData";
+import { WorkersCardsData } from "~/data/WorkersCardsData";
 
 import WorkersCard from "../WorkersCard/WorkersCard";
 
 const WorkersList = () => {
   return (
     <ul className="workers__list">
-      {WorkersCardData.map(({ imageSrc, name, profession, description }) => (
-        <li className="workers__item">
+      {WorkersCardsData.map(({ imageSrc, name, profession, description, id }) => (
+        <li className="workers__item" key={id}>
           <WorkersCard
             imageSrc={imageSrc}
             name={name}
