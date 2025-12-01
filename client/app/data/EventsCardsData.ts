@@ -4,6 +4,7 @@ export interface IEventsCard {
   title: string;
   author: string;
   location: string;
+	category: string;
 }
 
 export const EventsCardsData: IEventsCard[] = [
@@ -13,6 +14,7 @@ export const EventsCardsData: IEventsCard[] = [
     title: "Авторский студенческий театр «17-ая скрипка»",
     author: "Артемьева Юлия Александровна",
     location: "Комсомольский проспект, 29, ауд. 22, 24 (ЦРМП)",
+		category: "teams"
   },
   {
     id: 2,
@@ -20,6 +22,7 @@ export const EventsCardsData: IEventsCard[] = [
     title: "Музыкальная студия «ПРОПЕТЬ»",
     author: "Мамыкина Юлия Николаевна",
     location: "Комсомольский проспект, 29, ауд. 22, 24 (ЦРМП)",
+		category: "teams"
   },
   {
     id: 3,
@@ -27,5 +30,6 @@ export const EventsCardsData: IEventsCard[] = [
     title: "Хореографическая студия “Postscriptum”",
     author: "Абдурахманова Александра Андреевна",
     location: "Комсомольский проспект, 29, ауд. 14 (Клуб студентов)",
+		category: "groups"
   },
 ];

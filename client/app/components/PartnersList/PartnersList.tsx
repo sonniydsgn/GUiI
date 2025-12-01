@@ -1,9 +1,11 @@
 import { PartnersData } from "~/data/PartnersData";
 
 const PartnersList = () => {
+  const duplicatePartnersData = [...PartnersData, ...PartnersData];
+
   return (
     <ul className="partners__list">
-      {PartnersData.map((partner) => (
+      {duplicatePartnersData.map((partner) => (
         <li key={partner} className="partners__item">
           <img
             src={partner}

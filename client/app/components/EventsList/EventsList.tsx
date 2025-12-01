@@ -2,16 +2,25 @@ import { EventsCardsData } from "~/data/EventsCardsData";
 
 import EventsCard from "../EventsCard/EventsCard";
 
-const EventsList = () => {
+interface EventsListProps {
+  activeCategory: string;
+}
+
+const EventsList = ({ activeCategory }: EventsListProps) => {
+  const filteredEventsCards = EventsCardsData.filter(
+    (eventCard) => eventCard.category === activeCategory
+  );
+
   return (
     <ul className="events__list">
-      {EventsCardsData.map(({ id, imageSrc, title, author, location }) => (
+      {filteredEventsCards.map(({ id, imageSrc, title, author, location, category }) => (
         <li className="events__item" key={id}>
           <EventsCard
             imageSrc={imageSrc}
             title={title}
             author={author}
             location={location}
+            category={category}
           />
         </li>
       ))}

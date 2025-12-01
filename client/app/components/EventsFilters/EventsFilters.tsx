@@ -4,15 +4,12 @@ import { EventsFiltersData } from "~/data/EventsFiltersData";
 
 import Button from "../Button/Button";
 
-import { useState } from "react";
+interface EventFiltersProps {
+  onClick: (category: string) => void;
+  activeCategory: string;
+}
 
-const EventsFilters = () => {
-  const [activeCategory, setActiveCategory] = useState<string>("teams");
-
-	const handleClick = (category: string) => {
-		setActiveCategory(category)
-	}
-
+const EventsFilters = ({ onClick, activeCategory }: EventFiltersProps) => {
   return (
     <div className="events-filters">
       {EventsFiltersData.map(({ id, text, category }) => (
@@ -21,8 +18,8 @@ const EventsFilters = () => {
           variant={category === activeCategory ? "dark" : "transparent"}
           isSmall
           key={id}
-					disableHoverEffect
-					onClick={() => handleClick(category)}
+          disableHoverEffect
+          onClick={() => onClick(category)}
         >
           {text}
         </Button>

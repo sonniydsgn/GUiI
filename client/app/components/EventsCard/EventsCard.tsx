@@ -4,7 +4,7 @@ import type { IEventsCard } from "~/data/EventsCardsData";
 
 import LinkWithArrow from "../LinkWithArrow/LinkWithArrow";
 
-const EventsCard = ({ id, imageSrc, title, author, location }: IEventsCard) => {
+const EventsCard = ({ imageSrc, title, author, location, category}: IEventsCard) => {
   return (
     <article className="events-card">
       <div className="events-card__inner">
