@@ -56,7 +56,7 @@ const Header = () => {
             <ul className="header__menu-list">
               {data.HeaderMenuItemData.data?.map((item) => (
                 <li key={item.id} className="header__menu-item">
-                  <a href="" className="header__menu-link">
+                  <a href="" className="header__menu-link body-s-medium">
                     {item.content}
                   </a>
                 </li>

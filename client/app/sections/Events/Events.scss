@@ -1,0 +1,19 @@
+@use "~/styles/helpers" as *;
+
+.events {
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(24);
+	}
+	
+	&__list {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(16);
+	}
+
+	&__button {
+		width: 100%;
+	}
+}

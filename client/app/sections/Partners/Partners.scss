@@ -1,0 +1,36 @@
+@use "~/styles/helpers" as *;
+
+.partners {
+	&__inner {
+		overflow: hidden;
+	}
+
+  &__list {
+    display: flex;
+    align-items: center;
+    width: max-content; // Ширина по содержимому
+    animation: marquee 20s linear infinite;
+    will-change: transform;
+		column-gap: rem(16);
+  }
+
+  &__item {
+    @include flex-center(true);
+    width: rem(182);
+    height: rem(56);
+    flex-shrink: 0;
+  }
+
+	&__image {
+		width: 75%;
+	}
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); // Сдвигаем на половину ширины контента
+  }
+}
