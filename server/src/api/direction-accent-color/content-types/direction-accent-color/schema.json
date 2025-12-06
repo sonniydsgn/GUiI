@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "direction_accent_colors",
+  "info": {
+    "singularName": "direction-accent-color",
+    "pluralName": "direction-accent-colors",
+    "displayName": "Direction Accent Color"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "accentColor": {
+      "type": "string"
+    }
+  }
+}

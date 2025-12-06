@@ -1,5 +1,40 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface DirectionHero extends Struct.ComponentSchema {
+  collectionName: 'components_direction_heroes';
+  info: {
+    displayName: 'Hero';
+  };
+  attributes: {
+    availabilityDormitory: Schema.Attribute.Boolean;
+    availabilityMilitaryDepartment: Schema.Attribute.Boolean;
+    code: Schema.Attribute.String;
+    direction_accent_color: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::direction-accent-color.direction-accent-color'
+    >;
+    durationStudy: Schema.Attribute.String;
+    educationForm: Schema.Attribute.String;
+    fullName: Schema.Attribute.String;
+    passingGrade: Schema.Attribute.String;
+    price: Schema.Attribute.Integer;
+    shortName: Schema.Attribute.String;
+  };
+}
+
+export interface DirectionProfessions extends Struct.ComponentSchema {
+  collectionName: 'components_direction_professions';
+  info: {
+    displayName: 'Professions';
+  };
+  attributes: {
+    professions: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::direction-profession.direction-profession'
+    >;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -65,6 +100,8 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'direction.hero': DirectionHero;
+      'direction.professions': DirectionProfessions;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

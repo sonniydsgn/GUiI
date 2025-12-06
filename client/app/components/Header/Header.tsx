@@ -6,7 +6,7 @@ import Logo from "../Logo/Logo";
 import Button from "../Button/Button";
 import HeaderMenu from "../HeaderMenu/HeaderMenu";
 
-export interface HeaderMenuItem {
+export interface HeaderMenuItemAPI {
   id: number;
   documentId: string;
   content: string;
@@ -17,7 +17,7 @@ export interface HeaderMenuItem {
 }
 
 interface HeaderMenuItemResponse {
-  data: HeaderMenuItem[];
+  data: HeaderMenuItemAPI[];
 }
 
 export interface LoaderData {

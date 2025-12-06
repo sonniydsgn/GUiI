@@ -13,12 +13,13 @@
     color: var(--color-light);
     padding: rem(72) rem(54) 0;
     position: relative;
+		overflow: hidden;
 
     &-title {
       text-align: center;
     }
 
-    & svg {
+    &-image {
       @include square(rem(150));
 
       position: absolute;

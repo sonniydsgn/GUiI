@@ -13,6 +13,9 @@
   "attributes": {
     "content": {
       "type": "string"
+    },
+    "href": {
+      "type": "string"
     }
   }
 }

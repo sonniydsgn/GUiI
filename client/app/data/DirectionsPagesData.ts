@@ -1,5 +1,6 @@
 export interface IDirectionsPage {
   id: string;
+	directionName: string;
   code: string;
   title: string;
   educationForm: string;
@@ -14,6 +15,7 @@ export interface IDirectionsPage {
 export const DirectionsPagesData: IDirectionsPage[] = [
   {
     id: "mtid",
+		directionName: "МТИД",
     code: "Прикладная информатика (09.03.03)",
     title: "Мультимедийные технологии и информационный дизайн",
     educationForm: "Очная",

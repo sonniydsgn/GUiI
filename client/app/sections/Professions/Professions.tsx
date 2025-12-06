@@ -4,21 +4,25 @@ import Section from "~/layouts/Section/Section";
 
 import { useState } from "react";
 
-import { ProfessionsCardsData } from "~/data/ProfessionsCardsData";
+// import { ProfessionsCardsData } from "~/data/ProfessionsCardsData";
+
+import type { ProfessionsDirectionBlockItem } from "~/routes/directions.$direction";
 
 import ProfessionsList from "~/components/ProfessionsList/ProfessionsList";
 
-const Professions = () => {
-  const [activeCardId, setActiveCardId] = useState<number>(1);
+interface ProfessionsProps {
+	data: ProfessionsDirectionBlockItem[]
+}
+
+const Professions = ({data}: ProfessionsProps) => {
+  const [activeCardId, setActiveCardId] = useState<number>(data[0].id);
 
   const handleClick = (id: number) => {
     setActiveCardId(id);
   };
 
-  const activeCard = ProfessionsCardsData.find((card) => card.id === activeCardId);
-	const filteredCards = ProfessionsCardsData.filter((card) => card !== activeCard)
-
-  const { id, title, Icon } = activeCard;
+  const activeCard = data.find((card) => card.id === activeCardId);
+	const filteredCards = data.filter((card) => card !== activeCard)
 
   return (
     <Section
@@ -28,9 +32,10 @@ const Professions = () => {
     >
       <div className="professions__inner container">
         <div className="professions__active">
-          <h3 className="professions__active-title">{title}</h3>
+          <h3 className="professions__active-title">{activeCard?.title}</h3>
 
-          <Icon></Icon>
+					<img src={`http://localhost:1337${activeCard?.image.url}`} alt="" className="professions__active-image" />
+          {/* <Icon></Icon> */}
         </div>
 
         <ProfessionsList data={filteredCards} onClick={handleClick}/>

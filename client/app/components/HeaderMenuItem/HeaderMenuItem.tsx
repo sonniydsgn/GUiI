@@ -1,11 +1,11 @@
 import clsx from "clsx";
 
-import type { HeaderMenuItem } from "../Header/Header";
+import type { HeaderMenuItemAPI } from "../Header/Header";
 
 import ArrowRightIcon from "~/assets/icons/arrow-right.svg?react";
 
 interface HeaderMenuItemProps {
-  item: HeaderMenuItem;
+  item: HeaderMenuItemAPI;
   activeId: number | null;
   onClick: (id: number | null) => void;
   href?: string;

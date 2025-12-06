@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_direction_heroes",
+  "info": {
+    "displayName": "Hero"
+  },
+  "options": {},
+  "attributes": {
+    "fullName": {
+      "type": "string"
+    },
+    "shortName": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "educationForm": {
+      "type": "string"
+    },
+    "durationStudy": {
+      "type": "string"
+    },
+    "passingGrade": {
+      "type": "string"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "availabilityDormitory": {
+      "type": "boolean"
+    },
+    "availabilityMilitaryDepartment": {
+      "type": "boolean"
+    },
+    "direction_accent_color": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::direction-accent-color.direction-accent-color"
+    }
+  },
+  "config": {}
+}

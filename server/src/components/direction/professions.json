@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_direction_professions",
+  "info": {
+    "displayName": "Professions"
+  },
+  "options": {},
+  "attributes": {
+    "professions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::direction-profession.direction-profession"
+    }
+  },
+  "config": {}
+}

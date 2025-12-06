@@ -1,11 +1,11 @@
 import "./HeroDirection.scss";
 
-import type { IDirectionsPage } from "~/data/DirectionsPagesData";
+import type { HeroDirectionBlock } from "~/routes/directions.$direction";
 
 import HeroDirectionList from "~/components/HeroDirectionList/HeroDirectionList";
 
 interface HeroDirectionsProps {
-  data: IDirectionsPage;
+  data: HeroDirectionBlock;
 }
 
 interface HeroDirectionInfo {
@@ -17,14 +17,15 @@ interface HeroDirectionInfo {
 const HeroDirection = ({ data }: HeroDirectionsProps) => {
   const {
     code,
-    title,
+    shortName,
     educationForm,
-    duration,
-    grade,
+    fullName,
+    passingGrade,
+		durationStudy,
     price,
     availabilityDormitory,
     availabilityMilitaryDepartment,
-    accentColor,
+    direction_accent_color,
   } = data;
 
   const HeroDirectionInfoListData: HeroDirectionInfo[] = [
@@ -36,17 +37,17 @@ const HeroDirection = ({ data }: HeroDirectionsProps) => {
     {
       id: 2,
       characteristic: "Длительность",
-      value: duration,
+      value: durationStudy,
     },
     {
       id: 3,
       characteristic: "Проходной балл",
-      value: grade,
+      value: passingGrade,
     },
     {
       id: 4,
       characteristic: "Стоимость",
-      value: price,
+      value: `от ${price.toLocaleString("ru-Ru").toString()} ₽`,
     },
     {
       id: 5,
@@ -63,12 +64,12 @@ const HeroDirection = ({ data }: HeroDirectionsProps) => {
   return (
     <section
       className="hero-direction"
-      style={{ "--color-accent": accentColor } as React.CSSProperties}
+      style={{ "--color-accent": direction_accent_color.accentColor } as React.CSSProperties}
     >
       <div className="hero-direction__inner container">
         <div className="hero-direction__info">
           <p className="hero-direction__code">{code}</p>
-          <h1 className="hero-direction__title">{title}</h1>
+          <h1 className="hero-direction__title">{fullName}</h1>
         </div>
 
         <HeroDirectionList data={HeroDirectionInfoListData} />
