@@ -24,12 +24,28 @@ export const EventsCardsData: IEventsCard[] = [
     location: "Комсомольский проспект, 29, ауд. 22, 24 (ЦРМП)",
 		category: "teams"
   },
+	{
+		id: 3,
+		imageSrc: "/app/assets/img/events/3.jpg",
+		title: "Хореографическая студия “Postscriptum”",
+		author: "Абдурахманова Александра Андреевна",
+		location: "Комсомольский проспект, 29, ауд. 14 (Клуб студентов)",
+		category: "teams"
+	},
   {
-    id: 3,
-    imageSrc: "/app/assets/img/events/3.jpg",
-    title: "Хореографическая студия “Postscriptum”",
-    author: "Абдурахманова Александра Андреевна",
-    location: "Комсомольский проспект, 29, ауд. 14 (Клуб студентов)",
-		category: "groups"
+    id: 4,
+    imageSrc: "/app/assets/img/events/4.jpg",
+    title: "Фольклорно-этнографическая студия «Радольница»",
+    author: "Надеждина Алена Александровна",
+    location: "Комсомольский проспект, 29, ауд. 2 (Клуб студентов)",
+		category: "teams"
+  },
+  {
+    id: 4,
+    imageSrc: "/app/assets/img/events/5.jpg",
+    title: "Творческое объединение «Лидер»",
+    author: "Панькова Екатерина Илдусовна",
+    location: "Комсомольский проспект, 29, ауд. 1 (ЦРМП)",
+		category: "teams"
   },
 ];

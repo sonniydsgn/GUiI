@@ -1,7 +1,7 @@
 @use "~/styles/helpers" as *;
 
 .stats__item:last-child .stats-card::after {
-	height: calc(100% + rem(112));
+	height: calc(100% + var(--section-padding-y));
 }
 
 .stats-card {

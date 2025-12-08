@@ -1,16 +1,12 @@
-import { EventsCardsData } from "~/data/EventsCardsData";
-
 import EventsCard from "../EventsCard/EventsCard";
 
+import type { IEventsCard } from "~/data/EventsCardsData";
+
 interface EventsListProps {
-  activeCategory: string;
+  filteredEventsCards: IEventsCard[];
 }
 
-const EventsList = ({ activeCategory }: EventsListProps) => {
-  const filteredEventsCards = EventsCardsData.filter(
-    (eventCard) => eventCard.category === activeCategory
-  );
-
+const EventsList = ({ filteredEventsCards }: EventsListProps) => {
   return (
     <ul className="events__list">
       {filteredEventsCards.map(({ id, imageSrc, title, author, location, category }) => (

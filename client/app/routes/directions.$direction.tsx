@@ -8,6 +8,7 @@ import HeroDirection from "~/sections/HeroDirection/HeroDirection";
 import Professions from "~/sections/Professions/Professions";
 import Dormitory from "~/sections/Dormitory/Dormitory";
 import MilitaryDepartment from "~/sections/MilitaryDepartment/MilitaryDepartment";
+import News from "~/sections/News/News";
 
 export interface ProfessionsDirectionBlockItem {
   title: string;
@@ -120,8 +121,9 @@ export default function DirectionRoute({
     <Page>
       <HeroDirection data={heroBlock}></HeroDirection>
       <Professions data={professionsBlock.professions} />
-      <Dormitory />
-      <MilitaryDepartment />
+      {heroBlock.availabilityDormitory && <Dormitory />}
+      {heroBlock.availabilityMilitaryDepartment && <MilitaryDepartment />}
+      <News />
 
       {/* {professionsBlock && (
         <div className="mt-10">
