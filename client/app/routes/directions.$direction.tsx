@@ -16,14 +16,9 @@ export interface ProfessionsDirectionBlockItem {
   id: number;
 }
 
-interface ProfessionsDirectionBlock {
-  __component: string;
-  professions: ProfessionsDirectionBlockItem[];
-}
-
-export interface HeroDirectionBlock {
-  __component: string;
+export interface DirectionData {
   id: number;
+  title: string;
   fullName: string;
   shortName: string;
   code: string;
@@ -34,11 +29,7 @@ export interface HeroDirectionBlock {
   availabilityDormitory: boolean;
   availabilityMilitaryDepartment: boolean;
   direction_accent_color: { accentColor: string };
-}
-
-interface DirectionData {
-  id: number;
-  title: string;
+  direction_professions: ProfessionsDirectionBlockItem[];
 }
 
 interface DirectionResponse {
@@ -51,25 +42,13 @@ export async function loader({ params }: Route.LoaderArgs) {
   const url = new URL(path, BASE_URL);
 
   // Используем параметр из URL для фильтрации
-  url.search = qs.stringify({
-    filters: { title: params.direction },
-    populate: {
-      blocks: {
-        on: {
-          "direction.hero": {
-            populate: "*",
-          },
-          "direction.professions": {
-            populate: {
-              professions: {
-                populate: "*",
-              },
-            },
-          },
-        },
-      },
+  url.search = qs.stringify(
+    {
+      filters: { title: params.direction },
+      populate: "*",
     },
-  });
+    { encodeValuesOnly: true }
+  );
 
   const response = await fetch(url.href);
   const data = await response.json();
@@ -78,12 +57,10 @@ export async function loader({ params }: Route.LoaderArgs) {
 
 export function meta({ loaderData }: Route.MetaArgs) {
   const currentDirection = loaderData?.directionsData?.data?.[0];
-  const heroBlock = currentDirection.blocks?.find(
-    (block: HeroDirectionBlock) => block.__component === "direction.hero"
-  );
+  console.log(currentDirection);
 
   return [
-    { title: `Кафедра ГУиИ | ${heroBlock.shortName}` },
+    { title: `Кафедра ГУиИ | ${currentDirection}` },
     { name: "description", content: `${currentDirection.title} Page` },
   ];
 }
@@ -96,7 +73,7 @@ export default function DirectionRoute({
   const directionParam = params.direction;
 
   // Данные из loader
-  const currentDirection = loaderData?.directionsData?.data?.[0];
+  const currentDirection: DirectionData = loaderData?.directionsData?.data?.[0];
 
   if (!currentDirection) {
     return (
@@ -107,22 +84,14 @@ export default function DirectionRoute({
     );
   }
 
-  // Находим hero блок для текущего направления
-  const heroBlock = currentDirection.blocks?.find(
-    (block: HeroDirectionBlock) => block.__component === "direction.hero"
-  );
-
-  const professionsBlock = currentDirection.blocks?.find(
-    (block: ProfessionsDirectionBlock) =>
-      block.__component === "direction.professions"
-  );
-
   return (
     <Page>
-      <HeroDirection data={heroBlock}></HeroDirection>
-      <Professions data={professionsBlock.professions} />
-      {heroBlock.availabilityDormitory && <Dormitory />}
-      {heroBlock.availabilityMilitaryDepartment && <MilitaryDepartment />}
+      <HeroDirection data={currentDirection}></HeroDirection>
+      {/* <Professions data={currentDirection.direction_professions} /> */}
+      {currentDirection.availabilityDormitory && <Dormitory />}
+      {currentDirection.availabilityMilitaryDepartment && (
+        <MilitaryDepartment />
+      )}
       <News />
 
       {/* {professionsBlock && (

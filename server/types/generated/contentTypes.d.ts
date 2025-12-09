@@ -633,19 +633,33 @@ export interface ApiDirectionDirection extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    blocks: Schema.Attribute.DynamicZone<
-      ['direction.hero', 'direction.professions']
-    >;
+    availabilityDormitory: Schema.Attribute.Boolean;
+    availabilityMilitaryDepartment: Schema.Attribute.Boolean;
+    code: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    direction_accent_color: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::direction-accent-color.direction-accent-color'
+    >;
+    direction_professions: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::direction-profession.direction-profession'
+    >;
+    durationStudy: Schema.Attribute.String;
+    educationForm: Schema.Attribute.String;
+    fullName: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::direction.direction'
     > &
       Schema.Attribute.Private;
+    passingGrade: Schema.Attribute.String;
+    price: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
+    shortName: Schema.Attribute.String;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

@@ -38,6 +38,7 @@ const Events = () => {
         <EventsFilters
           onClick={handleFilterClick}
           activeCategory={activeCategory}
+					eventsCards={EventsCardsData}
         />
         <EventsList
           filteredEventsCards={filteredEventsCards.slice(0, countVisibleCards)}

@@ -11,14 +11,44 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "blocks": {
-      "type": "dynamiczone",
-      "components": [
-        "direction.hero",
-        "direction.professions"
-      ]
-    },
     "title": {
+      "type": "string"
+    },
+    "fullName": {
+      "type": "string"
+    },
+    "shortName": {
+      "type": "string"
+    },
+    "educationForm": {
+      "type": "string"
+    },
+    "durationStudy": {
+      "type": "string"
+    },
+    "passingGrade": {
+      "type": "string"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "availabilityDormitory": {
+      "type": "boolean"
+    },
+    "availabilityMilitaryDepartment": {
+      "type": "boolean"
+    },
+    "direction_accent_color": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::direction-accent-color.direction-accent-color"
+    },
+    "direction_professions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::direction-profession.direction-profession"
+    },
+    "code": {
       "type": "string"
     }
   }

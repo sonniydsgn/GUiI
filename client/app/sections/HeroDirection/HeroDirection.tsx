@@ -1,11 +1,11 @@
 import "./HeroDirection.scss";
 
-import type { HeroDirectionBlock } from "~/routes/directions.$direction";
+import type { DirectionData } from "~/routes/directions.$direction";
 
 import HeroDirectionList from "~/components/HeroDirectionList/HeroDirectionList";
 
 interface HeroDirectionsProps {
-  data: HeroDirectionBlock;
+  data: DirectionData;
 }
 
 interface HeroDirectionInfo {
@@ -17,7 +17,6 @@ interface HeroDirectionInfo {
 const HeroDirection = ({ data }: HeroDirectionsProps) => {
   const {
     code,
-    shortName,
     educationForm,
     fullName,
     passingGrade,

@@ -4,8 +4,6 @@ import Section from "~/layouts/Section/Section";
 
 import { useState } from "react";
 
-// import { ProfessionsCardsData } from "~/data/ProfessionsCardsData";
-
 import type { ProfessionsDirectionBlockItem } from "~/routes/directions.$direction";
 
 import ProfessionsList from "~/components/ProfessionsList/ProfessionsList";
@@ -15,6 +13,8 @@ interface ProfessionsProps {
 }
 
 const Professions = ({data}: ProfessionsProps) => {
+	console.log(data);
+	
   const [activeCardId, setActiveCardId] = useState<number>(data[0].id);
 
   const handleClick = (id: number) => {

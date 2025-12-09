@@ -41,11 +41,19 @@ export const EventsCardsData: IEventsCard[] = [
 		category: "teams"
   },
   {
-    id: 4,
+    id: 5,
     imageSrc: "/app/assets/img/events/5.jpg",
     title: "Творческое объединение «Лидер»",
     author: "Панькова Екатерина Илдусовна",
     location: "Комсомольский проспект, 29, ауд. 1 (ЦРМП)",
 		category: "teams"
+  },
+  {
+    id: 6,
+    imageSrc: "/app/assets/img/events/6.jpg",
+    title: "Творческое объединение «КВН»",
+    author: "Суворов Вячеслав Сергеевич",
+    location: "Комсомольский проспект, 29, ауд. 26 (Клуб студентов)",
+		category: "sport"
   },
 ];
