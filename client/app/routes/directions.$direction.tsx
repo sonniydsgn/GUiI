@@ -10,6 +10,10 @@ import Dormitory from "~/sections/Dormitory/Dormitory";
 import MilitaryDepartment from "~/sections/MilitaryDepartment/MilitaryDepartment";
 import News from "~/sections/News/News";
 
+import { useOnInView } from "react-intersection-observer";
+
+import { useNavigation } from "~/contexts/NavigationContext.jsx";
+
 export interface ProfessionsDirectionBlockItem {
   title: string;
   image: { url: string };
@@ -28,12 +32,9 @@ export interface DirectionData {
   price: number;
   availabilityDormitory: boolean;
   availabilityMilitaryDepartment: boolean;
-  direction_accent_color: { accentColor: string };
-  direction_professions: ProfessionsDirectionBlockItem[];
-}
-
-interface DirectionResponse {
-  data: DirectionData[];
+  accentColor: { accentColor: string };
+  professions: ProfessionsDirectionBlockItem[];
+  degrees: { degree: string }[];
 }
 
 export async function loader({ params }: Route.LoaderArgs) {
@@ -45,13 +46,21 @@ export async function loader({ params }: Route.LoaderArgs) {
   url.search = qs.stringify(
     {
       filters: { title: params.direction },
-      populate: "*",
+      populate: {
+        professions: {
+          populate: "*",
+        },
+        accentColor: {
+          populate: "*",
+        },
+      },
     },
     { encodeValuesOnly: true }
   );
 
   const response = await fetch(url.href);
   const data = await response.json();
+
   return { directionsData: data };
 }
 
@@ -60,7 +69,7 @@ export function meta({ loaderData }: Route.MetaArgs) {
   console.log(currentDirection);
 
   return [
-    { title: `Кафедра ГУиИ | ${currentDirection}` },
+    { title: `Кафедра ГУиИ | ${currentDirection.shortName}` },
     { name: "description", content: `${currentDirection.title} Page` },
   ];
 }
@@ -69,6 +78,7 @@ export default function DirectionRoute({
   loaderData,
   params,
 }: Route.ComponentProps) {
+  const { setNavigationState } = useNavigation();
   // Используем params из Route.ComponentProps
   const directionParam = params.direction;
 
@@ -84,15 +94,25 @@ export default function DirectionRoute({
     );
   }
 
+  const inViewRef = useOnInView((inView, entry) => {
+    if (inView) {
+      setNavigationState({ activeTab: false });
+    } else {
+      setNavigationState({ activeTab: true });
+    }
+  });
+
   return (
     <Page>
-      <HeroDirection data={currentDirection}></HeroDirection>
-      {/* <Professions data={currentDirection.direction_professions} /> */}
+      <div ref={inViewRef}>
+        <HeroDirection data={currentDirection}></HeroDirection>
+      </div>
+      <Professions data={currentDirection.professions} />
       {currentDirection.availabilityDormitory && <Dormitory />}
       {currentDirection.availabilityMilitaryDepartment && (
         <MilitaryDepartment />
       )}
-      <News />
+      <News group={currentDirection.shortName} />
 
       {/* {professionsBlock && (
         <div className="mt-10">

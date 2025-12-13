@@ -3,7 +3,11 @@ import "./News.scss";
 import Section from "~/layouts/Section/Section";
 import NewsList from "~/components/NewsList/NewsList";
 
-const News = () => {
+interface NewsProps {
+	group?: string
+}
+
+const News = ({group}: NewsProps) => {
   return (
     <Section
       sectionName="news"
@@ -13,7 +17,7 @@ const News = () => {
       sectionVariant="gray"
     >
       <div className="news__inner container">
-        <NewsList />
+        <NewsList group={group}/>
       </div>
     </Section>
   );

@@ -7,6 +7,7 @@ export interface IDirectionsCard {
   Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
   title: string;
   description: string;
+  shortDescription: string;
   tags: string[];
 }
 
@@ -16,6 +17,7 @@ export const DirectionsCardsData: IDirectionsCard[] = [
     Icon: MtidIcon,
     title: "МТИД",
     description: "Мультимедийные технологии и информационный дизайн",
+    shortDescription: "Будущим дизайнерам",
     tags: ["Бакалавриат"],
   },
   {
@@ -23,6 +25,7 @@ export const DirectionsCardsData: IDirectionsCard[] = [
     Icon: GmuIcon,
     title: "ГМУ",
     description: "Государственное и муниципальное управление",
+    shortDescription: "Будущим менеджерам",
     tags: ["Бакалавриат", "Магистратура", "Аспирантура"],
   },
   {
@@ -30,6 +33,7 @@ export const DirectionsCardsData: IDirectionsCard[] = [
     Icon: GuopIcon,
     title: "ГУОП",
     description: "Государственное управление и отраслевые политики",
+    shortDescription: "Будущим политикам",
     tags: ["Аспирантура"],
   },
 ];

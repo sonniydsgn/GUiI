@@ -1,24 +1,40 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface DirectionDormitory extends Struct.ComponentSchema {
+  collectionName: 'components_direction_dormitories';
+  info: {
+    displayName: 'Dormitory';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface DirectionHero extends Struct.ComponentSchema {
   collectionName: 'components_direction_heroes';
   info: {
     displayName: 'Hero';
   };
   attributes: {
-    availabilityDormitory: Schema.Attribute.Boolean;
-    availabilityMilitaryDepartment: Schema.Attribute.Boolean;
-    code: Schema.Attribute.String;
-    direction_accent_color: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::direction-accent-color.direction-accent-color'
+    characteristics: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::direction-page-characteristic.direction-page-characteristic'
     >;
-    durationStudy: Schema.Attribute.String;
-    educationForm: Schema.Attribute.String;
-    fullName: Schema.Attribute.String;
-    passingGrade: Schema.Attribute.String;
-    price: Schema.Attribute.Integer;
-    shortName: Schema.Attribute.String;
+  };
+}
+
+export interface DirectionMilitaryDepartment extends Struct.ComponentSchema {
+  collectionName: 'components_direction_military_departments';
+  info: {
+    displayName: 'Military Department';
+    icon: 'attachment';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -28,10 +44,8 @@ export interface DirectionProfessions extends Struct.ComponentSchema {
     displayName: 'Professions';
   };
   attributes: {
-    professions: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::direction-profession.direction-profession'
-    >;
+    description: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -100,7 +114,9 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'direction.dormitory': DirectionDormitory;
       'direction.hero': DirectionHero;
+      'direction.military-department': DirectionMilitaryDepartment;
       'direction.professions': DirectionProfessions;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;

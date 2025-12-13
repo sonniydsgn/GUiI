@@ -10,6 +10,8 @@
 	--color-gray-dark: #81818b;
 	--color-gray-dark-alt: #313135;
 
+	--color-global-accent: #aa0041;
+
 	--font-family-base: "Montserrat", sans-serif;
 
 	--container-width: #{rem(1172)};
@@ -21,6 +23,8 @@
 	--border-radius-small: #{rem(8)};
 	--border-radius: #{rem(12)};
 	--border-radius-large: #{rem(16)};
+
+	--box-shadow: 0 #{rem(4)} #{rem(24)} 0 rgba(27, 31, 38, 0.08);
 	
 	--transition-duration: .25s;
 }

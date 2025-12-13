@@ -5,37 +5,10 @@
   },
   "options": {},
   "attributes": {
-    "shortName": {
-      "type": "string"
-    },
-    "code": {
-      "type": "string"
-    },
-    "educationForm": {
-      "type": "string"
-    },
-    "durationStudy": {
-      "type": "string"
-    },
-    "passingGrade": {
-      "type": "string"
-    },
-    "price": {
-      "type": "integer"
-    },
-    "availabilityDormitory": {
-      "type": "boolean"
-    },
-    "availabilityMilitaryDepartment": {
-      "type": "boolean"
-    },
-    "fullName": {
-      "type": "string"
-    },
-    "direction_accent_color": {
+    "characteristics": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::direction-accent-color.direction-accent-color"
+      "relation": "oneToMany",
+      "target": "api::direction-page-characteristic.direction-page-characteristic"
     }
   },
   "config": {}

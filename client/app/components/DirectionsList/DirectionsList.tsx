@@ -1,3 +1,4 @@
+import qs from "qs";
 import DirectionsCard from "../DirectionsCard/DirectionsCard";
 import { DirectionsCardsData } from "~/data/DirectionsCardsData";
 

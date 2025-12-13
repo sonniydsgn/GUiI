@@ -592,6 +592,99 @@ export interface ApiDirectionAccentColorDirectionAccentColor
   };
 }
 
+export interface ApiDirectionDegreeDirectionDegree
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'direction_degrees';
+  info: {
+    displayName: 'Direction Degree';
+    pluralName: 'direction-degrees';
+    singularName: 'direction-degree';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    degree: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::direction-degree.direction-degree'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDirectionPageCharacteristicDirectionPageCharacteristic
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'direction_page_characteristics';
+  info: {
+    displayName: 'Direction Page Characteristic';
+    pluralName: 'direction-page-characteristics';
+    singularName: 'direction-page-characteristic';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    characreristic: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::direction-page-characteristic.direction-page-characteristic'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDirectionPageDirectionPage extends Struct.SingleTypeSchema {
+  collectionName: 'direction_pages';
+  info: {
+    displayName: 'Direction Page';
+    pluralName: 'direction-pages';
+    singularName: 'direction-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::direction-page.direction-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.DynamicZone<
+      [
+        'direction.hero',
+        'direction.professions',
+        'direction.dormitory',
+        'direction.military-department',
+      ]
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDirectionProfessionDirectionProfession
   extends Struct.CollectionTypeSchema {
   collectionName: 'direction_professions';
@@ -633,19 +726,19 @@ export interface ApiDirectionDirection extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    accentColor: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::direction-accent-color.direction-accent-color'
+    >;
     availabilityDormitory: Schema.Attribute.Boolean;
     availabilityMilitaryDepartment: Schema.Attribute.Boolean;
     code: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    direction_accent_color: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::direction-accent-color.direction-accent-color'
-    >;
-    direction_professions: Schema.Attribute.Relation<
+    degrees: Schema.Attribute.Relation<
       'oneToMany',
-      'api::direction-profession.direction-profession'
+      'api::direction-degree.direction-degree'
     >;
     durationStudy: Schema.Attribute.String;
     educationForm: Schema.Attribute.String;
@@ -658,7 +751,12 @@ export interface ApiDirectionDirection extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     passingGrade: Schema.Attribute.String;
     price: Schema.Attribute.Integer;
+    professions: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::direction-profession.direction-profession'
+    >;
     publishedAt: Schema.Attribute.DateTime;
+    shortDescription: Schema.Attribute.String;
     shortName: Schema.Attribute.String;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -1012,8 +1110,8 @@ export interface PluginUploadFile extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    alternativeText: Schema.Attribute.String;
-    caption: Schema.Attribute.String;
+    alternativeText: Schema.Attribute.Text;
+    caption: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1037,7 +1135,7 @@ export interface PluginUploadFile extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     mime: Schema.Attribute.String & Schema.Attribute.Required;
     name: Schema.Attribute.String & Schema.Attribute.Required;
-    previewUrl: Schema.Attribute.String;
+    previewUrl: Schema.Attribute.Text;
     provider: Schema.Attribute.String & Schema.Attribute.Required;
     provider_metadata: Schema.Attribute.JSON;
     publishedAt: Schema.Attribute.DateTime;
@@ -1046,7 +1144,7 @@ export interface PluginUploadFile extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.Text & Schema.Attribute.Required;
     width: Schema.Attribute.Integer;
   };
 }
@@ -1270,6 +1368,9 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::direction-accent-color.direction-accent-color': ApiDirectionAccentColorDirectionAccentColor;
+      'api::direction-degree.direction-degree': ApiDirectionDegreeDirectionDegree;
+      'api::direction-page-characteristic.direction-page-characteristic': ApiDirectionPageCharacteristicDirectionPageCharacteristic;
+      'api::direction-page.direction-page': ApiDirectionPageDirectionPage;
       'api::direction-profession.direction-profession': ApiDirectionProfessionDirectionProfession;
       'api::direction.direction': ApiDirectionDirection;
       'api::global.global': ApiGlobalGlobal;

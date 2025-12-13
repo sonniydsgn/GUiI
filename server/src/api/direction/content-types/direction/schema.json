@@ -17,6 +17,9 @@
     "fullName": {
       "type": "string"
     },
+    "code": {
+      "type": "string"
+    },
     "shortName": {
       "type": "string"
     },
@@ -38,17 +41,22 @@
     "availabilityMilitaryDepartment": {
       "type": "boolean"
     },
-    "direction_accent_color": {
+    "accentColor": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::direction-accent-color.direction-accent-color"
     },
-    "direction_professions": {
+    "professions": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::direction-profession.direction-profession"
     },
-    "code": {
+    "degrees": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::direction-degree.direction-degree"
+    },
+    "shortDescription": {
       "type": "string"
     }
   }

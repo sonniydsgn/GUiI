@@ -6,11 +6,14 @@ import Logo from "../Logo/Logo";
 import Button from "../Button/Button";
 import HeaderMenu from "../HeaderMenu/HeaderMenu";
 
+import { useNavigation } from "~/contexts/NavigationContext.jsx";
+import clsx from "clsx";
+
 export interface HeaderMenuItemAPI {
   id: number;
   documentId: string;
   content: string;
-	href: string;
+  href: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
@@ -27,6 +30,8 @@ export interface LoaderData {
 const Header = () => {
   const [data, setData] = useState<LoaderData | null>(null);
   const [loading, setLoading] = useState(true);
+
+  const { navigationState } = useNavigation();
 
   useEffect(() => {
     async function loadData() {
@@ -49,12 +54,12 @@ const Header = () => {
   if (!data) return <p>No data found</p>;
 
   return (
-    <header className="header">
+    <header className={clsx("header", {"header--transparent": !navigationState.activeTab})}>
       <div className="header__inner container">
         <Logo className="header__logo" />
 
         <div className="header__actions">
-          <HeaderMenu data={data}/>
+          <HeaderMenu data={data} />
 
           <Button className="header__button" variant="light" isSmall>
             Поступить

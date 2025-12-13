@@ -5,10 +5,11 @@
   },
   "options": {},
   "attributes": {
-    "professions": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::direction-profession.direction-profession"
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
     }
   },
   "config": {}

@@ -24,7 +24,7 @@ const HeroDirection = ({ data }: HeroDirectionsProps) => {
     price,
     availabilityDormitory,
     availabilityMilitaryDepartment,
-    direction_accent_color,
+    accentColor,
   } = data;
 
   const HeroDirectionInfoListData: HeroDirectionInfo[] = [
@@ -63,7 +63,7 @@ const HeroDirection = ({ data }: HeroDirectionsProps) => {
   return (
     <section
       className="hero-direction"
-      style={{ "--color-accent": direction_accent_color.accentColor } as React.CSSProperties}
+      style={{ "--color-accent": accentColor.accentColor } as React.CSSProperties}
     >
       <div className="hero-direction__inner container">
         <div className="hero-direction__info">

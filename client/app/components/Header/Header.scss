@@ -3,9 +3,14 @@
 .header {
   background-color: var(--color-dark);
   padding-block: rem(16);
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 900;
+
+	&--transparent {
+		background-color: transparent;
+		position: absolute;
+	}
 
   &__inner {
     display: flex;
@@ -83,14 +88,12 @@
     }
   }
 
-  &__modal {
-    color: red;
-    position: absolute;
-    width: rem(680);
-    height: rem(312);
-    bottom: rem(-324);
-    transform: translateX(-50%);
-    left: 50%;
-    background-color: yellow;
-  }
+  // &__modal {
+  //   position: absolute;
+  //   width: rem(680);
+  //   height: rem(312);
+  //   bottom: rem(-324);
+  //   transform: translateX(-50%);
+  //   left: 50%;
+  // }
 }

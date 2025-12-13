@@ -1,0 +1,32 @@
+@use "~/styles/helpers/" as *;
+
+.header-modal-card {
+	background-color: var(--color-gray-alt);
+	padding: rem(16);
+	border-radius: var(--border-radius);
+	position: relative;
+	height: 100%;
+	display: flex;
+
+	&__inner {
+		display: flex;
+		flex-direction: column;
+
+		& svg {
+			@include square(rem(24));
+		}
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(4);
+		margin-top: auto;
+	}
+
+	&__link {
+		position: absolute;
+		top: rem(16);
+		right: rem(16);
+	}
+}

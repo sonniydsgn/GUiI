@@ -1,0 +1,52 @@
+@use "~/styles/helpers/" as *;
+
+.header-modal {
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-light);
+  padding: rem(24);
+  border-radius: var(--border-radius-large);
+  position: absolute;
+  width: rem(680);
+  height: rem(312);
+  bottom: rem(-324);
+  transform: translateX(-50%);
+  left: 50%;
+
+  &__inner {
+    display: flex;
+		height: 100%;
+		column-gap: rem(16);
+  }
+
+  &__cards {
+    &-list {
+      display: grid;
+      grid-template-columns: repeat(2, rem(186));
+      gap: rem(4);
+      grid-template-areas:
+        "card-1 card-1"
+        "card-2 card-3";
+			height: 100%;
+    }
+
+    &-item {
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+          grid-area: card-#{$i};
+        }
+      }
+    }
+  }
+
+	&__links {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(8);
+
+		&__list {
+			display: flex;
+			flex-direction: column;
+			row-gap: rem(4);
+		}
+	}
+}

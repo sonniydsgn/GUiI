@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "direction_page_characteristics",
+  "info": {
+    "singularName": "direction-page-characteristic",
+    "pluralName": "direction-page-characteristics",
+    "displayName": "Direction Page Characteristic"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "characreristic": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "direction_degrees",
+  "info": {
+    "singularName": "direction-degree",
+    "pluralName": "direction-degrees",
+    "displayName": "Direction Degree"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "degree": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@use "~/styles/helpers/" as *;
+
+.header-modal-link {
+  padding: rem(6) rem(8);
+  display: flex;
+  column-gap: rem(8);
+  border-radius: var(--border-radius-small);
+
+  & svg * {
+    fill: var(--color-gray-dark);
+  }
+
+  @include hover(false) {
+    background-color: var(--color-gray-alt);
+
+    & svg * {
+      fill: var(--color-global-accent);
+    }
+  }
+}

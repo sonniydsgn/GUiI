@@ -18,7 +18,7 @@ export default function IndexRoute() {
   return (
     <Page>
       <Hero />
-      <News />
+      <News/>
       <Directions />
       <Workers />
       <Stats />

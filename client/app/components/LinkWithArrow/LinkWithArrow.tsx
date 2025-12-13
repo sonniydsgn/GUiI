@@ -12,7 +12,7 @@ interface LinkWithArrowProps {
 
 const LinkWithArrow = ({ href, children, className }: LinkWithArrowProps) => {
   return (
-    <a href={href} className={clsx("link-with-arrow", className)}>
+    <a href={href} className={clsx("link-with-arrow", className)} target="_blank">
       <span className="link-with-arrow__inner">
         {children}
 
